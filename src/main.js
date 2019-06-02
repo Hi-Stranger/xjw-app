@@ -4,11 +4,13 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import Vant from 'vant';
+import myComponts from './base';
 import 'vant/lib/index.css';
 import '../static/css/index.less';
 import store from './store';
 
 Vue.use(Vant);
+Vue.use(myComponts);
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
