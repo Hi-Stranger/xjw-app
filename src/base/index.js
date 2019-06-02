@@ -4,7 +4,7 @@ import Head from './Head.vue';
 // import Banner2 from './Banner2.vue';
 // import Banner3 from './Banner3.vue';
 // import Notice from './Notice.vue';
-// import Foot from './Foot.vue';
+import Foot from './Foot.vue';
 
 const myComponts = {
   install: function (Vue) {
@@ -14,7 +14,7 @@ const myComponts = {
     // Vue.component('Banner2', Banner2);
     // Vue.component('Banner3', Banner3);
     // Vue.component('Notice', Notice);
-    // Vue.component('Foot', Foot);
+    Vue.component('Foot', Foot);
   }
 };
 

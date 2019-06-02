@@ -1,6 +1,8 @@
 <template>
   <div class="box">
-    <div class="flex"></div>
+    <div class="land-box">
+      <Head :bg="false" :register="true"></Head>
+    </div>
   </div>
 </template>
 
@@ -11,5 +13,7 @@
 </script>
 
 <style lang="less">
-
+  .land-box {
+    background: url("../../static/img/big_bg@2x.png") no-repeat center center/cover;
+  }
 </style>

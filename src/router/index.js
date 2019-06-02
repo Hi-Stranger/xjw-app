@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/Home'; //首页
+import Land from '@/components/Land'; //登陆
+
 import Register from '@/components/Register'; //注册
 import Download from '@/components/Download'; //下载
 
@@ -18,7 +20,14 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      children: [
+        {
+          path: '/land',
+          name: 'Land',
+          component: Land
+        }
+      ]
     },
     {
       path: '/download',

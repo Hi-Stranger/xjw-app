@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="home-box flex col">
-      <Head></Head>
+      <Head :logo="true" :group="true" :back="false"></Head>
       <van-swipe :autoplay="3000" indicator-color="#304691">
         <van-swipe-item>
           <img src="../../static/img/banner1@2x.png" alt="图片显示错误">
@@ -26,27 +26,33 @@
         </div>
       </div>
       <div class="more-box font14 flex">
-        <div class="current-type flex just-center col items-center">
+        <div @click="changeType(0)" :class="{'current-type':currentType == 0}"
+             class="flex just-center col items-center">
           <img src="../../static/img/remen@2x.png" alt="图片显示错误">
           <span>热门</span>
         </div>
-        <div class="flex just-center col items-center">
+        <div @click="changeType(1)" :class="{'current-type':currentType == 1}"
+             class="flex just-center col items-center">
           <img src="../../static/img/tiyu@2x.png" alt="图片显示错误">
           <span>体育</span>
         </div>
-        <div class="flex just-center col items-center">
+        <div @click="changeType(2)" :class="{'current-type':currentType == 2}"
+             class="flex just-center col items-center">
           <img src="../../static/img/caipiao@2x.png" alt="图片显示错误">
           <span>彩票</span>
         </div>
-        <div class="flex just-center col items-center">
+        <div @click="changeType(3)" :class="{'current-type':currentType == 3}"
+             class="flex just-center col items-center">
           <img src="../../static/img/shixun@2x.png" alt="图片显示错误">
           <span>视讯</span>
         </div>
-        <div class="flex just-center col items-center">
+        <div @click="changeType(4)" :class="{'current-type':currentType == 4}"
+             class="flex just-center col items-center">
           <img src="../../static/img/dianzi@2x.png" alt="图片显示错误">
           <span>电子</span>
         </div>
-        <div class="flex just-center col items-center">
+        <div @click="changeType(5)" :class="{'current-type':currentType == 5}"
+             class="flex just-center col items-center">
           <img src="../../static/img/qipai@2x.png" alt="图片显示错误">
           <span>棋牌</span>
         </div>
@@ -68,13 +74,25 @@
           </div>
         </div>
       </div>
+      <Foot></Foot>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
   export default {
-    name: "Home"
+    name: "Home",
+    data() {
+      return {
+        currentType: 0,
+      }
+    },
+    methods: {
+      changeType(num) {
+        this.currentType = num;
+      }
+    }
   }
 </script>
 
@@ -97,7 +115,7 @@
 
           .van-icon-volume-o:before {
             content: '';
-            background: url("../../static/img/laba@2x.png") no-repeat center center/contain;
+            background: url("../../static/img/laba@2x.png") no-repeat center center/cover;
             width: .2rem;
             height: .17rem;
           }
@@ -127,7 +145,7 @@
 
         &.current-type {
           background: #ffffff url("../../static/img/xz@2x.png") no-repeat left top/100% 100%;
-          border-bottom: none;
+          border-bottom: 1px solid transparent;
           border-radius: .05rem .05rem 0 0;
         }
       }
