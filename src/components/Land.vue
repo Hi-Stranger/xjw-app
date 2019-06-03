@@ -1,7 +1,23 @@
 <template>
-  <div class="box">
+  <div class="box land-bg">
+    <Head :bg="false" :register="true"></Head>
     <div class="land-box">
-      <Head :bg="false" :register="true"></Head>
+      <div class="logo-box flex just-center">
+        <img src="../../static/img/logo@2x.png" alt="图片显示错误">
+      </div>
+      <div class="land-group border-box font15">
+        <div class="relative mar-b10">
+          <i class="iconfont icon-yonghu absolute font26"></i>
+          <input class="full-width border-box font15" type="number" placeholder="用户名">
+        </div>
+        <div class="relative">
+          <i class="iconfont icon-mima absolute font26"></i>
+          <input class="full-width border-box font15" type="password" placeholder="密码">
+        </div>
+      </div>
+      <div class="land-btn border-box">
+        <button class="text-center full-width font17 colorWhite opacity8">登陆</button>
+      </div>
     </div>
   </div>
 </template>
@@ -13,7 +29,48 @@
 </script>
 
 <style lang="less">
-  .land-box {
+  .land-bg {
     background: url("../../static/img/big_bg@2x.png") no-repeat center center/cover;
+  }
+
+  .land-box {
+    .logo-box {
+      margin-bottom: .33rem;
+
+      img {
+        height: .47rem;
+      }
+    }
+
+    .land-group {
+      padding: 0 .43rem;
+
+      i {
+        color: #4d6a8d;
+        top: 50%;
+        left: .18rem;
+        transform: translate(0, -50%);
+      }
+
+      input {
+        height: .5rem;
+        line-height: .5rem;
+        background-color: #ffffff;
+        border-radius: .05rem;
+        padding: 0 .1rem 0 .6rem;
+      }
+    }
+
+    .land-btn {
+      padding: 0 .43rem;
+
+      button {
+        background-color: #3c6497;
+        height: .5rem;
+        line-height: .5rem;
+        margin-top: .45rem;
+        border-radius: .05rem;
+      }
+    }
   }
 </style>

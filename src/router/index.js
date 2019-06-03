@@ -2,10 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/Home'; //首页
 import Land from '@/components/Land'; //登陆
-
 import Register from '@/components/Register'; //注册
 import Download from '@/components/Download'; //下载
-
 Vue.use(Router);
 
 function getAbsolutePath() {
@@ -26,13 +24,18 @@ export default new Router({
           path: '/land',
           name: 'Land',
           component: Land
-        }
+        },
+        {
+          path: '/register',
+          name: 'Register',
+          component: Register
+        },
+        {
+          path: '/download',
+          name: 'Download',
+          component: Download
+        },
       ]
-    },
-    {
-      path: '/download',
-      name: 'Download',
-      component: Download
     },
     {
       path: '*',

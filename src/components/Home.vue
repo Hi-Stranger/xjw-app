@@ -1,7 +1,7 @@
 <template>
   <div class="box">
+    <Head :logo="true" :group="true" :back="false"></Head>
     <div class="home-box flex col">
-      <Head :logo="true" :group="true" :back="false"></Head>
       <van-swipe :autoplay="3000" indicator-color="#304691">
         <van-swipe-item>
           <img src="../../static/img/banner1@2x.png" alt="图片显示错误">
@@ -74,8 +74,8 @@
           </div>
         </div>
       </div>
-      <Foot></Foot>
     </div>
+    <Foot></Foot>
     <router-view></router-view>
   </div>
 </template>

@@ -19,14 +19,24 @@
     height: 100%;
     overflow: hidden;
     background: #ffffff;
+    display: flex;
+    flex-direction: column;
 
-    > div {
-      height: 100%;
+    > div:nth-child(2) {
+      flex: 1;
       overflow-y: auto;
+      padding-bottom: .79rem;
     }
   }
 
   .main-box {
     background-color: #f5f5f5;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    display: block;
+    background: unset;
   }
 </style>

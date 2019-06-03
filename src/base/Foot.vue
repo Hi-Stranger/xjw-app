@@ -1,9 +1,9 @@
 <template>
   <div class="foot-box fixed full-width flex">
-    <a class="flex flex1 col just-end items-center" href="javascript:;">
+    <router-link to="/" tag="a" class="flex flex1 col just-end items-center" href="javascript:;">
       <i class="iconfont icon-shouye1-copy font24"></i>
       <span>首页</span>
-    </a>
+    </router-link>
     <a class="flex flex1 col just-end items-center" href="javascript:;">
       <i class="iconfont icon-04_youhuihuodong font24"></i>
       <span>优惠活动</span>
