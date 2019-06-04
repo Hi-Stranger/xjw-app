@@ -6,7 +6,7 @@
       <router-link to="land" tag="button" class="font15 colorWhite">登陆</router-link>
     </div>
     <div @click="goBack" v-show="back" class="flex items-center">
-      <i class="iconfont icon-fanhui font23 colorWhite"></i>
+      <i :style="{'color':color}" class="iconfont icon-fanhui font23 colorWhite"></i>
       <span v-show="backText" class="font15" style="color: #19295C;">返回</span>
     </div>
     <router-link to="register" tag="div" v-show="register" class="flex items-center font15 colorWhite">
@@ -46,6 +46,9 @@
       'register': {
         default: false,
         type: Boolean,
+      },
+      'color': {
+        default: '#fff',
       }
     },
     methods: {

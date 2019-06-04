@@ -4,6 +4,8 @@ import Home from '@/components/Home'; //首页
 import Land from '@/components/Land'; //登陆
 import Register from '@/components/Register'; //注册
 import Download from '@/components/Download'; //下载
+import Preferential from '@/components/Preferential'; //下载
+import MemberCenter from '@/components/MemberCenter'; //会员中心
 Vue.use(Router);
 
 function getAbsolutePath() {
@@ -34,6 +36,16 @@ export default new Router({
           path: '/download',
           name: 'Download',
           component: Download
+        },
+        {
+          path: '/preferential',
+          name: 'Preferential',
+          component: Preferential
+        },
+        {
+          path: '/membercenter',
+          name: 'MemberCenter',
+          component: MemberCenter
         },
       ]
     },
