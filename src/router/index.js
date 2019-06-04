@@ -6,6 +6,7 @@ import Register from '@/components/Register'; //注册
 import Download from '@/components/Download'; //下载
 import Preferential from '@/components/Preferential'; //下载
 import MemberCenter from '@/components/MemberCenter'; //会员中心
+import Details from '@/components/Details'; //会员中心-详情
 Vue.use(Router);
 
 function getAbsolutePath() {
@@ -46,6 +47,11 @@ export default new Router({
           path: '/membercenter',
           name: 'MemberCenter',
           component: MemberCenter
+        },
+        {
+          path: '/details',
+          name: 'Details',
+          component: Details
         },
       ]
     },
