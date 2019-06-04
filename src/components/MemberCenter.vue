@@ -25,10 +25,10 @@
           <i class="iconfont icon-jilu1" style="background-color: #1EC889;"></i>
           充值记录
         </div>
-        <div>
+        <router-link to="/changepassword" tag="div">
           <i class="iconfont icon-suo" style="background-color: #F28F25;"></i>
           修改密码
-        </div>
+        </router-link>
         <div class="tc-btn font17 colorWhite border-box pad-r10 pad-l10">
           <button class="full-width full-height text-center opacity8">安全退出</button>
         </div>

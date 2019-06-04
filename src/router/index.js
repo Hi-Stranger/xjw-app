@@ -7,6 +7,7 @@ import Download from '@/components/Download'; //下载
 import Preferential from '@/components/Preferential'; //下载
 import MemberCenter from '@/components/MemberCenter'; //会员中心
 import Details from '@/components/Details'; //会员中心-详情
+import ChangePassword from '@/components/ChangePassword'; //修改密码
 Vue.use(Router);
 
 function getAbsolutePath() {
@@ -52,6 +53,11 @@ export default new Router({
           path: '/details',
           name: 'Details',
           component: Details
+        },
+        {
+          path: '/changepassword',
+          name: 'ChangePassword',
+          component: ChangePassword
         },
       ]
     },
