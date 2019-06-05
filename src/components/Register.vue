@@ -137,7 +137,7 @@
               message: resp.message,
               duration: 2000,
               onClose() {
-                _this.$router.push('/download');
+                _this.$router.push('/land');
               }
             });
           }
