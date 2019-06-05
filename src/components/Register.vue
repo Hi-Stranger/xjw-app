@@ -5,8 +5,7 @@
       <div class="register-group border-box font14">
         <div class="flex items-center group-one backgroundWhite mar-t10">
           <p class="colorBlack"><font>*</font>会员账号</p>
-          <input v-model="InAccount" class="colorGray flex1 border-box pad-r10" type="number"
-                 placeholder="6-12位的数字、字母或其组合">
+          <input v-model="InAccount" class="colorGray flex1 border-box pad-r10" placeholder="6-12位的数字、字母或其组合">
         </div>
         <div class="flex items-center group-one backgroundWhite mar-t10">
           <p class="colorBlack"><font>*</font>会员密码</p>
@@ -30,12 +29,12 @@
         </div>
         <div class="flex items-center group-one backgroundWhite mar-t10">
           <p class="colorBlack"><font class="visibility-hidden">*</font>手机号码</p>
-          <input v-model="InName" class="colorGray flex1 border-box pad-r10" type="text"
+          <input v-model="InTel" class="colorGray flex1 border-box pad-r10" type="text"
                  placeholder="请输入手机号码">
         </div>
         <div class="flex items-center group-one backgroundWhite mar-t10">
           <p class="colorBlack"><font class="visibility-hidden">*</font>微信号码</p>
-          <input v-model="InName" class="colorGray flex1 border-box pad-r10" type="text"
+          <input v-model="InWx" class="colorGray flex1 border-box pad-r10" type="text"
                  placeholder="请填写微信号码">
         </div>
         <div class="flex items-center mar-t10">

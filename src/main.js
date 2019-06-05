@@ -37,7 +37,11 @@ new Vue({
   };
 })();
 router.beforeEach((to, from, next) => {
-  if (to.path === '/membercenter' || to.path === '/changepassword' || to.path === 'details') {
+  if (to.path === '/membercenter') {
+    router.push('/land');
+    return;
+  }
+  if (to.path === '/changepassword' || to.path === 'details') {
     if (Object.keys(store._modules.root.state.userinfo).length == 0) {
       let time = true;
       Dialog.alert({

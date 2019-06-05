@@ -58,12 +58,12 @@
         </div>
       </div>
       <div class="flex just-between flex1 warp overflowY type-box border-box">
-        <div @click="goGame" class="border-box">
+        <router-link to="/download" tag="div" class="border-box">
           <div class="flex just-between items-center font16 full-height">
             <img src="../../static/img/sy_l@2x.png" alt="图片显示错误">
             <span>鼎盛国际</span>
           </div>
-        </div>
+        </router-link>
         <div class="border-box">
           <div class="flex just-between items-center font16 full-height">
             <img src="../../static/img/jiahao@2x.png" alt="图片显示错误">
@@ -99,7 +99,11 @@
     },
     methods: {
       changeType(num) {
-        this.currentType = num;
+        if (num == 0 || num == 3) {
+          this.currentType = num;
+          return;
+        }
+        this.routerYz();
       },
       goGame() {
         if (!this.userinfo.para) {

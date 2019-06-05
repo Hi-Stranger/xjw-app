@@ -1,16 +1,17 @@
 <template>
   <div class="box">
-    <Head :to="'/land'" :bg="false" :backText="true" :color="'#19295C'"></Head>
+    <Head :bg="false" :backText="true" :color="'#19295C'"></Head>
     <div class="download-box font14 text-center">
       <img class="margin-auto" src="../../static/img/dologo@2x.png" alt="图片显示错误">
       <span class="font24 mar-t15 mar-b15">鼎盛国际</span>
       <span>版本：2.2.9/2.3.1</span>
       <span>更新于：2018-10-1</span>
       <div class="font17 border-box flex items-center colorWhite">
-        <button class="full-width full-height text-center opacity8">新版本下载</button>
+        <a href="http://wfu95.58i2.xindelong.com.cn/3t9SO2"
+           class="full-width full-height text-center opacity8">新版本下载</a>
       </div>
       <div class="font17 border-box flex items-center colorWhite">
-        <button class="full-width full-height text-center opacity8">旧版本下载</button>
+        <a href="http://7zs.hf.mrfanfood.cn/fLMHU" class="full-width full-height text-center opacity8">旧版本下载</a>
       </div>
     </div>
   </div>
@@ -42,10 +43,12 @@
     div {
       padding: 0 .28rem;
       height: .49rem;
+      line-height: .49rem;
 
-      button {
+      a {
         background-color: #405F85;
         border-radius: .1rem;
+        color: #ffffff !important;
       }
 
       &:nth-child(5) {
