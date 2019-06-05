@@ -8,7 +8,7 @@
       <div class="land-group border-box font15">
         <div class="relative mar-b10">
           <i class="iconfont icon-yonghu absolute font26"></i>
-          <input v-model="account" class="full-width border-box font15" type="number" placeholder="用户名">
+          <input v-model="account" class="full-width border-box font15" placeholder="用户名">
         </div>
         <div class="relative">
           <i class="iconfont icon-mima absolute font26"></i>
