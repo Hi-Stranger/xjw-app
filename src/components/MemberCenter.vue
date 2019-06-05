@@ -46,6 +46,8 @@
     computed: {
       ...mapState(['userinfo'])
     },
+    mounted(){
+    }
   }
 </script>
 

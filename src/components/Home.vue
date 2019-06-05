@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="flex just-between flex1 warp overflowY type-box border-box">
-        <div class="border-box">
+        <div @click="goGame" class="border-box">
           <div class="flex just-between items-center font16 full-height">
             <img src="../../static/img/sy_l@2x.png" alt="图片显示错误">
             <span>鼎盛国际</span>
@@ -95,11 +95,30 @@
       }
     },
     computed: {
-      ...mapState(['config'])
+      ...mapState(['userinfo', 'config'])
     },
     methods: {
       changeType(num) {
         this.currentType = num;
+      },
+      goGame() {
+        if (!this.userinfo.para) {
+          this.$dialog.alert({
+            title: '重要提醒',
+            message: '请先登陆',
+            lockScroll: false,
+          });
+          setTimeout(() => {
+            this.$dialog.close();
+          }, 2000);
+          return;
+        }
+        window.open(this.userinfo.para);
+      }
+    },
+    watch: {
+      $route(n) {
+        console.log(n);
       }
     }
   }

@@ -64,9 +64,12 @@
 
       span:nth-child(2) {
         background-color: #777777;
-        height: .19rem;
+        /*height: .19rem;*/
+        line-height: .19rem;
         border-radius: .1rem;
         padding: 0 .1rem;
+        /*display: flex;*/
+        /*align-items: center;*/
       }
     }
 
