@@ -97,6 +97,13 @@
     computed: {
       ...mapState(['userinfo', 'config'])
     },
+    created() {
+      this.$nextTick(() => {
+        let _url = (window.location.host).split(".");
+        localStorage.agent = (_url[0]).toLocaleLowerCase() == 'www' ? _url[1] + ".com" : _url[0] + ".com";
+        // localStorage.agent = 'hl66899.com';
+      });
+    },
     methods: {
       changeType(num) {
         if (num == 0 || num == 3) {
