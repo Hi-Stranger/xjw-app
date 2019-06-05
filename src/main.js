@@ -4,6 +4,7 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import Vant from 'vant';
+import {Toast, Dialog, Loading} from 'vant';
 import myComponts from './base';
 import 'vant/lib/index.css';
 import '../static/css/index.less';
@@ -11,6 +12,7 @@ import store from './store';
 import MinXin from './components/mixins.js';
 
 Vue.mixin(MinXin);
+Vue.use(Dialog);
 Vue.use(Vant);
 Vue.use(myComponts);
 Vue.config.productionTip = false;
@@ -34,4 +36,27 @@ new Vue({
     setFont();
   };
 })();
+router.beforeEach((to, from, next) => {
+  if (to.path === '/membercenter' || to.path === '/changepassword' || to.path === 'details') {
+    if (Object.keys(store._modules.root.state.userinfo).length == 0) {
+      let time = true;
+      Dialog.alert({
+        title: '重要提醒',
+        message: '请先登陆',
+        lockScroll: false,
+      }).then(() => {
+        time = false;
+      });
+      setTimeout(() => {
+        if (time) Dialog.close();
+        router.push('/');
+      }, 2000);
+      return;
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
 

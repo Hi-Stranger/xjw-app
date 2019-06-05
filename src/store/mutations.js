@@ -17,6 +17,7 @@ const mutations = {
     state.userinfo = {};
   },
   [Types.SETLOAD](state, BOOL) {
+    console.log(111);
     state.config.load = BOOL;
   }
 };

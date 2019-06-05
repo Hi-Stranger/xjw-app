@@ -48,6 +48,7 @@
           });
           return;
         }
+        this.$store.commit('SETLOAD', true);
         login({
           username: this.account,
           password: this.password,

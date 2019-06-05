@@ -19,6 +19,17 @@ const myMixin = {
       setTimeout(() => {
         if (time) this.$dialog.close();
       }, 2000);
+    },
+    Signout() { //退出
+      let _this = this;
+      this.$toast.success({
+        message: '成功退出',
+        duration: 500,
+        onClose() {
+          _this.$store.commit('SETOUT');
+          _this.$router.push('/');
+        }
+      });
     }
   }
 };

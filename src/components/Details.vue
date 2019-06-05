@@ -17,7 +17,7 @@
         <span>上次登录时间</span>
         <span class="colorWhite">{{userinfo.last_login_time}}</span>
       </div>
-      <div class="tc-btn">
+      <div @click="Signout" class="tc-btn">
         <button class="colorWhite font17 full-width text-center opacity8">退出账号</button>
       </div>
     </div>

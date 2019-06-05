@@ -77,7 +77,7 @@
     </div>
     <Foot></Foot>
     <router-view></router-view>
-    <div v-show="config.show" class="load-box fixed full-width full-height flex just-center items-center">
+    <div v-show="config.load" class="load-box fixed full-width full-height flex just-center items-center">
       <van-loading type="spinner"/>
     </div>
   </div>

@@ -29,7 +29,7 @@
           <i class="iconfont icon-suo" style="background-color: #F28F25;"></i>
           修改密码
         </router-link>
-        <div class="tc-btn font17 colorWhite border-box pad-r10 pad-l10">
+        <div @click="Signout" class="tc-btn font17 colorWhite border-box pad-r10 pad-l10">
           <button class="full-width full-height text-center opacity8">安全退出</button>
         </div>
       </div>
