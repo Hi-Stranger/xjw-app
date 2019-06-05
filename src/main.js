@@ -8,7 +8,9 @@ import myComponts from './base';
 import 'vant/lib/index.css';
 import '../static/css/index.less';
 import store from './store';
+import MinXin from './components/mixins.js';
 
+Vue.mixin(MinXin);
 Vue.use(Vant);
 Vue.use(myComponts);
 Vue.config.productionTip = false;

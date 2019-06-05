@@ -97,11 +97,6 @@
     computed: {
       ...mapState(['config'])
     },
-    created() {
-      this.$nextTick(() => {
-        console.log(this.config);
-      });
-    },
     methods: {
       changeType(num) {
         this.currentType = num;

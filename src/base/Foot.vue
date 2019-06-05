@@ -8,11 +8,11 @@
       <i class="iconfont icon-04_youhuihuodong font24"></i>
       <span>优惠活动</span>
     </router-link>
-    <a class="flex flex1 col just-end items-center" href="javascript:;">
+    <a @click="routerYz" class="flex flex1 col just-end items-center" href="javascript:;">
       <i class="iconfont icon-qiandai text-center colorWhite font24"></i>
       <span>充值提现</span>
     </a>
-    <a class="flex flex1 col just-end items-center" href="javascript:;">
+    <a @click="routerYz" class="flex flex1 col just-end items-center" href="javascript:;">
       <i class="iconfont icon-zhuanhuan font24"></i>
       <span>额度转换</span>
     </a>

@@ -17,11 +17,11 @@
           <i class="iconfont icon-huiyuan" style="background-color: #2576E0;"></i>
           账户首页
         </router-link>
-        <div>
+        <div @click="routerYz">
           <i class="iconfont icon-jilumian" style="background-color: #9750EA;"></i>
           游戏记录
         </div>
-        <div>
+        <div @click="routerYz">
           <i class="iconfont icon-jilu1" style="background-color: #1EC889;"></i>
           充值记录
         </div>
