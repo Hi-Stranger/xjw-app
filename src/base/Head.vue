@@ -1,7 +1,7 @@
 <template>
   <div :class="{'bg':bg}" class="header-box flex just-between border-box pad-l10 pad-r10 items-center relative">
     <div v-show="logo" class="logo-box"></div>
-    <div v-show="group" class="head-group flex items-center">
+    <div v-show="group && !userinfo" class="head-group flex items-center">
       <router-link to="register" tag="button" class="font15 colorWhite">注册</router-link>
       <router-link to="land" tag="button" class="font15 colorWhite">登陆</router-link>
     </div>
@@ -20,6 +20,8 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex';
+
   export default {
     name: "Head",
     props: {
@@ -49,11 +51,24 @@
       },
       'color': {
         default: '#fff',
+      },
+      'to': {
+        default: -1
       }
+    },
+    computed: {
+      ...mapState(['userinfo'])
+    },
+    created(){
+      console.log(this.userinfo);
     },
     methods: {
       goBack() {
-        this.$router.go(-1);
+        if (this.to == -1) {
+          this.$router.go(-1);
+        } else {
+          this.$router.push(this.to);
+        }
       }
     }
   }

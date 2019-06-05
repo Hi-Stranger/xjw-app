@@ -5,10 +5,10 @@
       <div class="userinfo-box flex col relative">
         <div class="tx-box flex col">
           <i class="iconfont icon-huiyuan colorWhite text-center"></i>
-          <span class="font15 text-center colorWhite">520card</span>
+          <span class="font15 text-center colorWhite">{{userinfo.username}}</span>
         </div>
         <div class="info-box flex items-center just-between absolute full-width font15 colorWhite">
-          <span class="text-center flex1">可用额度:￥0.00</span>
+          <span class="text-center flex1">可用额度:￥{{userinfo.balance}}</span>
           <span class="text-center flex1">可用积分:0</span>
         </div>
       </div>
@@ -39,8 +39,13 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex';
+
   export default {
-    name: "MemberCenter"
+    name: "MemberCenter",
+    computed: {
+      ...mapState(['userinfo'])
+    },
   }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <Head :bg="false" :backText="true" :color="'#19295C'"></Head>
+    <Head :to="'/land'" :bg="false" :backText="true" :color="'#19295C'"></Head>
     <div class="download-box font14 text-center">
       <img class="margin-auto" src="../../static/img/dologo@2x.png" alt="图片显示错误">
       <span class="font24 mar-t15 mar-b15">鼎盛国际</span>

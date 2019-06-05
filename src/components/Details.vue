@@ -7,15 +7,15 @@
       </div>
       <div class="font14">
         <span>总余额</span>
-        <span>0.00</span>
+        <span>{{userinfo.balance}}</span>
       </div>
       <div class="font14">
         <span>会员账号</span>
-        <span class="colorWhite">520card</span>
+        <span class="colorWhite">{{userinfo.username}}</span>
       </div>
       <div class="font14">
         <span>上次登录时间</span>
-        <span class="colorWhite">2019-05-25 12:10:20</span>
+        <span class="colorWhite">{{userinfo.last_login_time}}</span>
       </div>
       <div class="tc-btn">
         <button class="colorWhite font17 full-width text-center opacity8">退出账号</button>
@@ -26,8 +26,13 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex';
+
   export default {
-    name: "Details"
+    name: "Details",
+    computed: {
+      ...mapState(['userinfo'])
+    },
   }
 </script>
 

@@ -77,16 +77,30 @@
     </div>
     <Foot></Foot>
     <router-view></router-view>
+    <div v-show="config.show" class="load-box fixed full-width full-height flex just-center items-center">
+      <van-loading type="spinner"/>
+    </div>
   </div>
 </template>
 
 <script>
+  import {mapState} from 'vuex';
+  import * as Types from '../store/mutations-type';
+
   export default {
     name: "Home",
     data() {
       return {
         currentType: 0,
       }
+    },
+    computed: {
+      ...mapState(['config'])
+    },
+    created() {
+      this.$nextTick(() => {
+        console.log(this.config);
+      });
     },
     methods: {
       changeType(num) {
@@ -186,7 +200,13 @@
           }
         }
       }
-
     }
+  }
+
+  .load-box {
+    z-index: 10;
+    background-color: rgba(0, 0, 0, .3);
+    top: 0;
+    left: 0;
   }
 </style>

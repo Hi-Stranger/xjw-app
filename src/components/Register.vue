@@ -44,7 +44,7 @@
             <u>注册协议</u>
           </van-checkbox>
         </div>
-        <div class="register-btn colorWhite flex items-center mar-t10 opacity8">
+        <div @click="HandleRegister" class="register-btn colorWhite flex items-center mar-t10 opacity8">
           <button class="margin-auto">立即注册</button>
         </div>
         <div class="text-center font12">
@@ -89,6 +89,9 @@
           }
         };
         window.addEventListener('resize', this.fn);
+        // let _url = (window.location.host).split(".");
+        // localStorage.agent = (_url[0]).toLocaleLowerCase() == 'www' ? _url[1] + ".com" : _url[0] + ".com";
+        localStorage.agent = 'hl66899.com';
       });
     },
     destroyed() {
