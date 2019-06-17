@@ -8,6 +8,7 @@ import Preferential from '@/components/Preferential'; //下载
 import MemberCenter from '@/components/MemberCenter'; //会员中心
 import Details from '@/components/Details'; //会员中心-详情
 import ChangePassword from '@/components/ChangePassword'; //修改密码
+import GameRecord from '@/components/GameRecord'; //游戏记录
 Vue.use(Router);
 
 function getAbsolutePath() {
@@ -58,6 +59,11 @@ export default new Router({
           path: '/changepassword',
           name: 'ChangePassword',
           component: ChangePassword
+        },
+        {
+          path: '/gamerecord',
+          name: 'GameRecord',
+          component: GameRecord
         },
       ]
     },

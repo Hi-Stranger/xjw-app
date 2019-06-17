@@ -29,7 +29,7 @@ new Vue({
 (function () {
   var setFont = function () {
     var calc_window_width = window.innerWidth > 750 ? 750 : window.innerWidth;
-    document.documentElement.style.fontSize = calc_window_width / 3.75 + 'px'
+    document.documentElement.style.fontSize = calc_window_width / 3.75 + 'px';
   };
   setFont();
   window.onresize = function () {
@@ -37,12 +37,12 @@ new Vue({
   };
 })();
 router.beforeEach((to, from, next) => {
-  if (to.path === '/membercenter') {
-    router.push('/land');
-    return;
-  }
-  if (to.path === '/changepassword' || to.path === 'details') {
+  if (to.path === '/membercenter' || to.path === '/changepassword' || to.path === 'details') {
     if (Object.keys(store._modules.root.state.userinfo).length == 0) {
+      if (to.path === '/membercenter') {
+        router.push('/land');
+        return;
+      }
       let time = true;
       Dialog.alert({
         title: '重要提醒',
