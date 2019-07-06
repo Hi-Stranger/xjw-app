@@ -12,10 +12,10 @@
       <i class="iconfont icon-qiandai text-center colorWhite font24"></i>
       <span>充值提现</span>
     </a>
-    <a @click="routerYz" class="flex flex1 col just-end items-center" href="javascript:;">
+    <router-link to="/contactservice" tag="a" class="flex flex1 col just-end items-center" href="javascript:;">
       <i class="iconfont icon-zhuanhuan font24"></i>
-      <span>额度转换</span>
-    </a>
+      <span>联系客服</span>
+    </router-link>
     <router-link to="/membercenter" tag="a" class="flex flex1 col just-end items-center" href="javascript:;">
       <i class="iconfont icon-huiyuan font24"></i>
       <span>会员中心</span>

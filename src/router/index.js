@@ -9,6 +9,7 @@ import MemberCenter from '@/components/MemberCenter'; //会员中心
 import Details from '@/components/Details'; //会员中心-详情
 import ChangePassword from '@/components/ChangePassword'; //修改密码
 import GameRecord from '@/components/GameRecord'; //游戏记录
+import ContactService from '@/components/ContactService'; //联系客服
 Vue.use(Router);
 
 function getAbsolutePath() {
@@ -64,6 +65,11 @@ export default new Router({
           path: '/gamerecord',
           name: 'GameRecord',
           component: GameRecord
+        },
+        {
+          path: '/contactservice',
+          name: 'ContactService',
+          component: ContactService
         },
       ]
     },

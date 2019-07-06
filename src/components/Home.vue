@@ -22,7 +22,7 @@
       <div class="notice-box relative">
         <div class="absolute full-width flex items-center border-box">
           <van-notice-bar class="full-width font14 colorGray"
-                          text="拒绝一切与兼职刷单、理财诈骗、洗黑钱等相关非正当资金。一经发现并确认，将永久冻结账号及资金，凡请有涉及会员请自行离开。" left-icon="volume-o"/>
+                          :text="config.msg" left-icon="volume-o"/>
         </div>
       </div>
       <div class="more-box font14 flex">
@@ -86,6 +86,7 @@
 <script>
   import {mapState} from 'vuex';
   import * as Types from '../store/mutations-type';
+  import {getconfigure} from '../api';
 
   export default {
     name: "Home",
@@ -101,7 +102,13 @@
       this.$nextTick(() => {
         // let _url = (window.location.host).split(".");
         // localStorage.agent = (_url[0]).toLocaleLowerCase() == 'www' ? _url[1] + ".com" : _url[0] + ".com";
-        localStorage.agent = 'hl66899.com';
+        localStorage.agent = 'ds22229.com';
+        let query = this.$route.query.agent || localStorage.agent;
+        this.$store.commit('SETLOAD', true);
+        getconfigure(query).then((resp) => {
+          this.$store.commit('SETLOAD', false);
+          this.$store.commit(Types.NOTICE, resp.data);
+        });
       });
     },
     methods: {
