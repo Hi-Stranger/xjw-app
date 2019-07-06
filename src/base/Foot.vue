@@ -13,7 +13,7 @@
       <span>充值提现</span>
     </a>
     <router-link to="/contactservice" tag="a" class="flex flex1 col just-end items-center" href="javascript:;">
-      <i class="iconfont icon-zhuanhuan font24"></i>
+      <i class="iconfont icon-kefu font24"></i>
       <span>联系客服</span>
     </router-link>
     <router-link to="/membercenter" tag="a" class="flex flex1 col just-end items-center" href="javascript:;">
