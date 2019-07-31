@@ -8,9 +8,9 @@
       <img class="border-box pad-10 margin-auto" :src="config.qrcode">
       <p class="font21 copyp mar-b15" @click="copy(config.wechat)">微信号 {{config.wechat}}</p>
       <a v-if="config.qq"
+         @click="copy(config.qq)"
          :href="'mqqwpa://im/chat?chat_type=wpa&uin='+config.qq+'&version=1&src_type=web&web_src=oicqzone.com'"
          class="font21 copyp block">QQ号 {{config.qq}}</a>
-      <!--         @click="copy(config.qq)"-->
       <!--            <a href="weixin://">点击一下</a>-->
       <input v-show="showin" v-model="inval" ref="in" type="text" style="opacity: 0;width: .1rem;height: .1rem;">
     </div>
@@ -39,7 +39,7 @@
           let dom = this.$refs['in'];
           dom.select();
           document.execCommand("Copy"); // 执行浏览器复制命令
-          this.tipSome('已经复制微信号码，是否打开微信', function () {
+          if (this.inval == this.config.wechat) this.tipSome('已经复制微信号码，是否打开微信', function () {
             window.location.href = 'weixin://';
           });
           this.showin = false;
