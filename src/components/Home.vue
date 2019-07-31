@@ -22,7 +22,7 @@
       <div class="notice-box relative">
         <div class="absolute full-width flex items-center border-box">
           <van-notice-bar class="full-width font14 colorGray"
-                          :text="config.msg" left-icon="volume-o"/>
+                          :text="config.notice" left-icon="volume-o"/>
         </div>
       </div>
       <div class="more-box font14 flex">
@@ -100,9 +100,9 @@
     },
     created() {
       this.$nextTick(() => {
-        let _url = (window.location.host).split(".");
-        localStorage.agent = (_url[0]).toLocaleLowerCase() == 'www' ? _url[1] + ".com" : _url[0] + ".com";
-        // localStorage.agent = 'ds22229.com';
+        // let _url = (window.location.host).split(".");
+        // localStorage.agent = (_url[0]).toLocaleLowerCase() == 'www' ? _url[1] + ".com" : _url[0] + ".com";
+        localStorage.agent = 'ds22229.com';
         let query = this.$route.query.agent || localStorage.agent;
         this.$store.commit('SETLOAD', true);
         getconfigure(query).then((resp) => {
