@@ -31,31 +31,31 @@
           <img src="../../static/img/remen@2x.png" alt="图片显示错误">
           <span>热门</span>
         </div>
-        <div @click="changeType(1)" :class="{'current-type':currentType == 1}"
-             class="flex just-center col items-center">
-          <img src="../../static/img/tiyu@2x.png" alt="图片显示错误">
-          <span>体育</span>
-        </div>
-        <div @click="changeType(2)" :class="{'current-type':currentType == 2}"
-             class="flex just-center col items-center">
-          <img src="../../static/img/caipiao@2x.png" alt="图片显示错误">
-          <span>彩票</span>
-        </div>
+<!--        <div @click="changeType(1)" :class="{'current-type':currentType == 1}"-->
+<!--             class="flex just-center col items-center">-->
+<!--          <img src="../../static/img/tiyu@2x.png" alt="图片显示错误">-->
+<!--          <span>体育</span>-->
+<!--        </div>-->
+<!--        <div @click="changeType(2)" :class="{'current-type':currentType == 2}"-->
+<!--             class="flex just-center col items-center">-->
+<!--          <img src="../../static/img/caipiao@2x.png" alt="图片显示错误">-->
+<!--          <span>彩票</span>-->
+<!--        </div>-->
         <div @click="changeType(3)" :class="{'current-type':currentType == 3}"
              class="flex just-center col items-center">
           <img src="../../static/img/shixun@2x.png" alt="图片显示错误">
           <span>视讯</span>
         </div>
-        <div @click="changeType(4)" :class="{'current-type':currentType == 4}"
-             class="flex just-center col items-center">
-          <img src="../../static/img/dianzi@2x.png" alt="图片显示错误">
-          <span>电子</span>
-        </div>
-        <div @click="changeType(5)" :class="{'current-type':currentType == 5}"
-             class="flex just-center col items-center">
-          <img src="../../static/img/qipai@2x.png" alt="图片显示错误">
-          <span>棋牌</span>
-        </div>
+<!--        <div @click="changeType(4)" :class="{'current-type':currentType == 4}"-->
+<!--             class="flex just-center col items-center">-->
+<!--          <img src="../../static/img/dianzi@2x.png" alt="图片显示错误">-->
+<!--          <span>电子</span>-->
+<!--        </div>-->
+<!--        <div @click="changeType(5)" :class="{'current-type':currentType == 5}"-->
+<!--             class="flex just-center col items-center">-->
+<!--          <img src="../../static/img/qipai@2x.png" alt="图片显示错误">-->
+<!--          <span>棋牌</span>-->
+<!--        </div>-->
       </div>
       <div class="flex just-between flex1 warp overflowY type-box border-box">
         <router-link to="/download" tag="div" class="border-box">
