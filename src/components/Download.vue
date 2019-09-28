@@ -7,11 +7,11 @@
       <span>版本：2.2.9/2.3.1</span>
       <span>更新于：2018-10-1</span>
       <div class="font17 border-box flex items-center colorWhite">
-        <a :href="config.appurl1"
+        <a @click="openurl(config.appurl1)"
            class="full-width full-height text-center opacity8">新版本下载</a>
       </div>
       <div class="font17 border-box flex items-center colorWhite">
-        <a :href="config.appurl2" class="full-width full-height text-center opacity8">旧版本下载</a>
+        <a @click="openurl(config.appurl2)" class="full-width full-height text-center opacity8">旧版本下载</a>
       </div>
     </div>
   </div>
@@ -27,8 +27,13 @@
     },
     created() {
       this.$nextTick(() => {
-        console.log(this.config);
+        // console.log(this.config);
       });
+    },
+    methods: {
+      openurl(url) {
+        window.open(url);
+      }
     }
   }
 </script>
