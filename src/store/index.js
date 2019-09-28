@@ -13,6 +13,8 @@ const state = {
     token: '',
     qq: '',
     load: false,
+    appurl1: "",
+    appurl2: "",
   },
   userinfo: localStorage.userinfo ? JSON.parse(localStorage.userinfo) : {}
 };

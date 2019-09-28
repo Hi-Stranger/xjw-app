@@ -7,19 +7,29 @@
       <span>版本：2.2.9/2.3.1</span>
       <span>更新于：2018-10-1</span>
       <div class="font17 border-box flex items-center colorWhite">
-        <a href="http://wfu95.58i2.xindelong.com.cn/3t9SO2"
+        <a :href="config.appurl1"
            class="full-width full-height text-center opacity8">新版本下载</a>
       </div>
       <div class="font17 border-box flex items-center colorWhite">
-        <a href="http://7zs.hf.mrfanfood.cn/fLMHU" class="full-width full-height text-center opacity8">旧版本下载</a>
+        <a :href="config.appurl2" class="full-width full-height text-center opacity8">旧版本下载</a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import {mapState} from 'vuex';
+
   export default {
-    name: "Download"
+    name: "Download",
+    computed: {
+      ...mapState(['config'])
+    },
+    created() {
+      this.$nextTick(() => {
+        console.log(this.config);
+      });
+    }
   }
 </script>
 
