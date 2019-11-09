@@ -27,7 +27,7 @@
     },
     created() {
       this.$nextTick(() => {
-        // console.log(this.config);
+
       });
     },
     methods: {

@@ -1,0 +1,142 @@
+{
+  "id": "1211298",
+  "name": "鼎盛国际现金网手机版",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1283",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "15367",
+      "name": "下三角形",
+      "font_class": "xiasanjiaoxing",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "308179",
+      "name": "记录-面",
+      "font_class": "jilumian",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "593484",
+      "name": "菜单",
+      "font_class": "weibiaoti12",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "903759",
+      "name": "APP(1)",
+      "font_class": "app1",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "970791",
+      "name": "首页",
+      "font_class": "shouye1-copy",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "979234",
+      "name": "钱袋",
+      "font_class": "qiandai",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "1115042",
+      "name": "记录",
+      "font_class": "jilu1",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "1128946",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "1277689",
+      "name": "会员",
+      "font_class": "huiyuan",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "1297647",
+      "name": "04_优惠活动",
+      "font_class": "04_youhuihuodong",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "2578229",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "5038957",
+      "name": "转换",
+      "font_class": "zhuanhuan",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "5334144",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "5387465",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "eada",
+      "unicode_decimal": 60122
+    },
+    {
+      "icon_id": "6129236",
+      "name": "194音量、喇叭、声音",
+      "font_class": "yinlianglabashengyin",
+      "unicode": "e7b5",
+      "unicode_decimal": 59317
+    },
+    {
+      "icon_id": "7159331",
+      "name": "锁",
+      "font_class": "suo",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "7315439",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "9626960",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e884",
+      "unicode_decimal": 59524
+    }
+  ]
+}

@@ -25,7 +25,7 @@
     > div:nth-child(2) {
       flex: 1;
       overflow-y: auto;
-      padding-bottom: .79rem;
+      padding-bottom: .59rem;
     }
   }
 
