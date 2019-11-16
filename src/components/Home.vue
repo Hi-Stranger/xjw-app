@@ -89,7 +89,10 @@
             autoplay: "muted"
           });
           myVideo.play();
-          document.getElementById("talkid").src = resp.data.online_service_url || "";
+          let _53code = document.createElement("script");
+          _53code.src = resp.data.online_service_url;
+          let s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(_53code, s);
         });
       });
     },
