@@ -20,10 +20,10 @@
       <i class="iconfont icon-app1 font30"></i>
       <span>APP下载</span>
     </router-link>
-    <a :href="this.config.online_service_url" target="_blank" class="flex flex1 col just-end items-center">
-      <i class="iconfont icon-xiaoxi font30"></i>
-      <span>在线客服</span>
-    </a>
+    <!--    <a :href="this.config.online_service_url" target="_blank" class="flex flex1 col just-end items-center">-->
+    <!--      <i class="iconfont icon-xiaoxi font30"></i>-->
+    <!--      <span>在线客服</span>-->
+    <!--    </a>-->
     <router-link to="/membercenter" tag="a" class="flex flex1 col just-end items-center" href="javascript:;">
       <i class="iconfont icon-huiyuan font30"></i>
       <span>会员中心</span>

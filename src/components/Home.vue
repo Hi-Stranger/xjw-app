@@ -2,7 +2,7 @@
   <div class="box">
     <Head :logo="true" :group="true" :back="false"></Head>
     <div class="home-box flex col">
-      <Contactcustomerservice v-if="$route.name === 'Home'"></Contactcustomerservice>
+      <!--      <Contactcustomerservice v-if="$route.name === 'Home'"></Contactcustomerservice>-->
       <van-swipe :autoplay="3000" indicator-color="#304691">
         <van-swipe-item>
           <img src="../../static/img/banner1@2x.png" alt="图片显示错误">
@@ -42,7 +42,8 @@
           </div>
         </div>
         <div v-show="$route.name === 'Home'" class="video-box flex1 relative" style="z-index: 5;">
-          <video id="welcomeVideo" playsinline="true" webkit-playsinline="true" class="video-js vjs-default-skin absolute full-height full-width">
+          <video id="welcomeVideo" playsinline="true" webkit-playsinline="true"
+                 class="video-js vjs-default-skin absolute full-height full-width">
             <source id="source" src="http://103.60.166.73:56782/hls/live/dsqj1.m3u8" type="application/x-mpegURL"/>
           </video>
         </div>
@@ -74,20 +75,21 @@
     created() {
       this.$nextTick(() => {
         let _url = (window.location.host).split(".");
-        localStorage.agent = (_url[0]).toLocaleLowerCase() == 'www' ? _url[1] + ".com" : _url[0] + ".com";
-        // localStorage.agent = 'ds22229.com';
+        // localStorage.agent = (_url[0]).toLocaleLowerCase() == 'www' ? _url[1] + ".com" : _url[0] + ".com";
+        localStorage.agent = 'ds0118.com';
         let query = this.$route.query.agent || localStorage.agent;
         this.$store.commit('SETLOAD', true);
         getconfigure(query).then((resp) => {
           this.$store.commit('SETLOAD', false);
           this.$store.commit(Types.NOTICE, resp.data);
-          var myVideo = videojs('welcomeVideo', {
+          let myVideo = videojs('welcomeVideo', {
             loop: true,
             controls: true,
             preload: 'auto',
             autoplay: "muted"
           });
           myVideo.play();
+          document.getElementById("talkid").src = resp.data.online_service_url || "";
         });
       });
     },
