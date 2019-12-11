@@ -44,7 +44,8 @@
         <div v-show="$route.name === 'Home'" class="video-box flex1 relative" style="z-index: 5;">
           <video id="welcomeVideo" playsinline="true" webkit-playsinline="true"
                  class="video-js vjs-default-skin absolute full-height full-width">
-            <source id="source" src="http://103.60.166.73:56782/hls/live/dsqj1.m3u8" type="application/x-mpegURL"/>
+            <source id="source" :src="config.online_live_url" type="application/x-mpegURL"/>
+            <!--            http://103.60.166.73:56782/hls/live/dsqj1.m3u8-->
           </video>
         </div>
       </div>
@@ -82,17 +83,19 @@
         getconfigure(query).then((resp) => {
           this.$store.commit('SETLOAD', false);
           this.$store.commit(Types.NOTICE, resp.data);
-          let myVideo = videojs('welcomeVideo', {
-            loop: true,
-            controls: true,
-            preload: 'auto',
-            autoplay: "muted"
-          });
-          myVideo.play();
-          let _53code = document.createElement("script");
-          _53code.src = resp.data.online_service_url;
-          let s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(_53code, s);
+          setTimeout(() => {
+            let myVideo = videojs('welcomeVideo', {
+              loop: true,
+              controls: true,
+              preload: 'auto',
+              autoplay: "muted"
+            });
+            myVideo.play();
+            let _53code = document.createElement("script");
+            _53code.src = resp.data.online_service_url;
+            let s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(_53code, s);
+          }, 1000);
         });
       });
     },
