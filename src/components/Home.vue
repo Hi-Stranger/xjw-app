@@ -33,12 +33,16 @@
             <span class="font14">客<br>服<br>微<br>信</span>
           </div>
           <div class="right-box flex just-center col warp flex1" style="text-align: left;">
-            <span v-for="(item,index) in config.phone" :key="index" class="font15"
-                  style="margin-bottom: .03rem;">联系电话：<a :href="'tel:'+item"
-                                                         style="color:rgb(228,141,38);">{{item}}</a></span>
-            <span class="font15">QQ：<a
-              :href="'mqqwpa://im/chat?chat_type=wpa&uin='+config.qq+'&version=1&src_type=web&web_src=oicqzone.com'"
-              style="color:rgb(228,141,38)">{{config.qq}}</a></span>
+            <template>
+              <span v-for="(item,index) in config.phone" :key="index" class="font15"
+                    style="margin-bottom: .03rem;">联系电话：<a :href="'tel:'+item"
+                                                           style="color:rgb(228,141,38);">{{item}}</a></span>
+            </template>
+            <template>
+              <span v-for="(item1,index1) in config.qq" :key="index1+100" class="font15">QQ：<a
+                :href="'mqqwpa://im/chat?chat_type=wpa&uin='+item1+'&version=1&src_type=web&web_src=oicqzone.com'"
+                style="color:rgb(228,141,38)">{{item1}}</a></span>
+            </template>
           </div>
         </div>
         <div v-show="$route.name === 'Home'" class="video-box flex1 relative" style="z-index: 5;">
@@ -83,6 +87,7 @@
         getconfigure(query).then((resp) => {
           this.$store.commit('SETLOAD', false);
           this.$store.commit(Types.NOTICE, resp.data);
+          console.log(this.config);
           setTimeout(() => {
             let myVideo = videojs('welcomeVideo', {
               loop: true,
