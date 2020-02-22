@@ -15,8 +15,9 @@ const state = {
     load: false,
     appurl1: "",
     appurl2: "",
-    online_live_url:"",
-    online_service_url:"",
+    online_live_url: "",
+    online_service_url: "",
+    useMobileCode: "",  //是否使用短信验证码判断 0使用/register（非） 1使用/registerSms
   },
   userinfo: localStorage.userinfo ? JSON.parse(localStorage.userinfo) : {}
 };

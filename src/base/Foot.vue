@@ -46,6 +46,7 @@
   .foot-box {
     height: .59rem;
     border-top: 1px solid #eaeaea;
+    background-color:#fff;
     /*<!--background: url("../../static/img/bottom_bg@2x.png") no-repeat center center/cover;-->*/
     bottom: 0;
 

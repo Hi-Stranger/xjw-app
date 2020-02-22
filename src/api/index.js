@@ -12,6 +12,14 @@ export let getconfigure = (str) => {
     'domain': str,
   });
 };
+//获取短信验证码
+export let getMsgCode = (data) => {
+  return axios.post("/createMobileCode", data);
+};
+//短信验证码注册
+export let registerSms = (data) => {
+  return axios.post("/registerSms", data);
+};
 //注册
 export let registerIn = (data) => {
   return axios.post("/register", data);

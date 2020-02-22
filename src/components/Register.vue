@@ -27,11 +27,28 @@
           <input v-model="InName" class="colorGray flex1 border-box pad-r10" type="text"
                  placeholder="真实姓名必须与银行卡用户一致">
         </div>
-        <div class="flex items-center group-one backgroundWhite mar-t10">
-          <p class="colorBlack"><font class="visibility-hidden">*</font>手机号码</p>
-          <input v-model="InTel" class="colorGray flex1 border-box pad-r10" type="text"
-                 placeholder="请输入手机号码">
-        </div>
+        <template v-if="!config.useMobileCode">
+          <div class="flex items-center group-one backgroundWhite mar-t10">
+            <p class="colorBlack"><font class="visibility-hidden">*</font>手机号码</p>
+            <input v-model="InTel" class="colorGray flex1 border-box pad-r10" type="text"
+                   placeholder="请输入手机号码">
+          </div>
+        </template>
+        <template v-else>
+          <div class="flex just-between mar-t10">
+            <div class="flex flex1 items-center content-start group-one backgroundWhite full-width">
+              <p class="colorBlack"><font>*</font>手机号码</p>
+              <input v-model="InTel" class="colorGray border-box pad-r10" style="width: 1.2rem;" type="number"
+                     placeholder="请输入手机号码">
+              <button @click="GetMessageCode" style="white-space: nowrap;">{{MsgWords}}</button>
+            </div>
+          </div>
+          <div class="flex items-center group-one backgroundWhite mar-t10">
+            <p class="colorBlack"><font>*</font><font class="visibility-hidden">*</font>验 证 码</p>
+            <input v-model="InMsgCode" class="colorGray flex1 border-box pad-r10" type="number"
+                   placeholder="请输入手机验证码">
+          </div>
+        </template>
         <div class="flex items-center group-one backgroundWhite mar-t10">
           <p class="colorBlack"><font class="visibility-hidden">*</font>微信号码</p>
           <input v-model="InWx" class="colorGray flex1 border-box pad-r10" type="text"
@@ -57,7 +74,8 @@
 </template>
 
 <script>
-  import {registerIn} from '../api';
+  import {mapState} from 'vuex';
+  import {registerIn, registerSms, getMsgCode} from '../api';
 
   export default {
     name: "Register",
@@ -70,11 +88,18 @@
         InMoneyPassword: '',  //取款密码
         InName: '', //真实姓名
         InTel: '', //电话号码
+        InMsgCode: '', //验证码
+        codeKey: '', //验证码返回的key
         InWx: '', //微信号码
         windowsize: '', //窗口大小
         footshow: true,
         fn: null,
+        MsgWords: "获取验证码",
+        Timer: null,
       }
+    },
+    computed: {
+      ...mapState(['userinfo', 'config'])
     },
     created() {
       this.$nextTick(() => {
@@ -88,14 +113,69 @@
           }
         };
         window.addEventListener('resize', this.fn);
+        if (localStorage.GetMsgCodeTime) {
+          if (parseInt((new Date().getTime() - localStorage.GetMsgCodeTime) / 1000) >= 120) {
+            localStorage.removeItem("GetMsgCodeTime");
+            localStorage.removeItem("codeKey");
+          } else {
+            this.codeKey = localStorage.codeKey;
+            this.CountTime();
+          }
+        }
       });
     },
     destroyed() {
       window.removeEventListener('resize', this.fn);
+      clearTimeout(this.Timer);
     },
     methods: {
+      GetMessageCode() { //获取短信验证码
+        if (localStorage.GetMsgCodeTime) {
+          // this.tipOutCancel(this.MsgWords + "秒后可再次获取验证码");
+          return;
+        }
+        if (!(/^1[3456789]\d{9}$/.test(this.InTel))) {
+          this.$dialog.alert({
+            title: '重要提醒',
+            message: "请输入正确的手机号",
+            lockScroll: false,
+          });
+          return;
+        }
+        getMsgCode({
+          mobile: this.InTel
+        }).then((resp) => {
+          this.tipOutCancel("短信验证码已发送，请注意查收");
+          this.codeKey = resp.codeKey;
+          localStorage.codeKey = resp.codeKey;
+          localStorage.GetMsgCodeTime = new Date().getTime();
+          //倒计时开始
+          this.CountTime();
+        });
+      },
+      CountTime() {  //时间倒计时
+        let time = parseInt((new Date().getTime() - localStorage.GetMsgCodeTime) / 1000);
+        if (time >= 120) {
+          clearTimeout(this.Timer);
+          localStorage.removeItem("GetMsgCodeTime");
+          localStorage.removeItem("codeKey");
+          this.MsgWords = "获取验证码";
+        } else {
+          this.MsgWords = 120 - time + "s";
+          this.Timer = setTimeout(() => {
+            this.CountTime();
+          }, 1000);
+        }
+      },
       HandleRegister() { //注册
         let msg = '';
+        if (this.config.useMobileCode) {
+          if (!(/^1[3456789]\d{9}$/.test(this.InTel))) {
+            msg = '请输入正确的手机号';
+          } else if (!this.InMsgCode) {
+            msg = '请输入验证码';
+          }
+        }
         if ((/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(this.InAccount)) || this.InAccount.length < 6 || this.InAccount.length > 12) {
           msg = '会员账号为6-12位的数字、字母或其组合';
         } else if (!(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/.test(this.InPassword)) || this.InPassword.length < 6 || this.InPassword.length > 12) {
@@ -115,7 +195,7 @@
           });
           return;
         }
-        registerIn({
+        let _data = {
           username: this.InAccount,
           password: this.InPassword,
           nickname: this.InName,
@@ -123,25 +203,40 @@
           wechat: this.InWx,
           phone: this.InTel,
           domain: localStorage.agent,
-        }).then((resp) => {
-          if (resp.code != 0) {
+        };
+        if (this.config.useMobileCode) {
+          _data.codeKey = this.codeKey;
+          _data.codeValue = this.InMsgCode;
+        }
+        let fn = (resp) => {
+          console.log(resp);
+          if (resp.code && resp.code != 0) {
             this.$dialog.alert({
               title: '重要提醒',
               message: resp.message,
               lockScroll: false,
             });
             return;
-          } else {
+          } else {  //注册成功
             let _this = this;
             this.$toast.success({
-              message: resp.message,
+              message: resp.data.msg,
               duration: 2000,
               onClose() {
                 _this.$router.push('/land');
               }
             });
           }
-        });
+        };
+        if (this.config.useMobileCode) {
+          registerSms(_data).then((resp) => {
+            fn(resp);
+          });
+        } else {
+          registerIn(_data).then((resp) => {
+            fn(resp);
+          });
+        }
       },
       scrollTo0() {  //滚动条到顶部
         this.$refs.scrollTo.scroll(0, 0);
@@ -163,6 +258,7 @@
 
         p {
           margin-left: .05rem;
+          white-space: nowrap;
         }
 
         font {

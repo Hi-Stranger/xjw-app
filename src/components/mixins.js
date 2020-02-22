@@ -26,7 +26,15 @@ const myMixin = {
         message: str,
         lockScroll: false,
       }).then(() => {
-        callback();
+        callback && callback();
+      });
+    },
+    tipOutCancel(str) {
+      this.$dialog.confirm({
+        title: '重要提醒',
+        message: str,
+        lockScroll: false,
+        showCancelButton: false,
       });
     },
     Signout() { //退出
