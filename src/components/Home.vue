@@ -80,7 +80,7 @@
     created() {
       this.$nextTick(() => {
         let _url = (window.location.host).split(".");
-        localStorage.agent = (_url[0]).toLocaleLowerCase() == 'www' ? _url[1] + ".com" : _url[0] + ".com";
+        localStorage.agent = (_url[0]).toLocaleLowerCase() == 'www' ? _url.splice(0, 1).join(".") : window.location.host;
         // localStorage.agent = 'ds0118.com';
         let query = this.$route.query.agent || localStorage.agent;
         this.$store.commit('SETLOAD', true);

@@ -146,8 +146,8 @@
           mobile: this.InTel
         }).then((resp) => {
           this.tipOutCancel("短信验证码已发送，请注意查收");
-          this.codeKey = resp.codeKey;
-          localStorage.codeKey = resp.codeKey;
+          this.codeKey = resp.data.codeKey;
+          localStorage.codeKey = resp.data.codeKey;
           localStorage.GetMsgCodeTime = new Date().getTime();
           //倒计时开始
           this.CountTime();
